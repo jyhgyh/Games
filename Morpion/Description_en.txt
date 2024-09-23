@@ -1,0 +1,43 @@
+English:
+
+    Project Description
+
+        This project is an implementation of the classic Tic-Tac-Toe game
+        using HTML, CSS, and JavaScript. The game allows two players to compete on a 3x3 grid,
+        tracking scores and indicating the current player.
+
+    Code Overview
+
+        HTML Structure: The HTML file defines the game's interface, including the grid, player scores, and controls.
+
+            Header: Contains the game title <h1>Morpion</h1> and a <div> to display the current player (<div id="currentPlayer">Joueur ??</div>).
+
+            Game Grid: A 3x3 grid created using nested <div> elements with classes row and cell. Each cell represents a square on the game board.
+
+            Win Display: A <span> element with the class win-display to show the winning player (<span class="win-display">Joueur ?? a gagné !</span>).
+
+            Controls: Includes player score displays and a "Replay" button.
+
+                Scores: Two <div> elements displaying "Joueur 1" and "Joueur 2" with their respective scores (<span id="playerOne">0</span> and <span id="playerTwo">0</span>).
+
+                Replay Button: A <button> element with the ID replay to reset the game.
+
+        External Resources:
+
+            CSS Stylesheet: Linked via <link rel="stylesheet" href="styles/main.css" /> to style the game interface.
+
+            JavaScript File: Linked via <script type="module" src="scripts/morpion.js" defer></script> to add game logic and interactivity.
+
+            Favicon: Linked via <link rel="shortcut icon" href="assets/favicon.ico" />.
+
+    Features
+
+        Dynamic Player Indicator: Displays which player's turn it is.
+
+        Interactive Grid: Players can click on cells to place their marks (usually "X" or "O").
+
+        Win Detection: The game detects when a player has won and displays a victory message.
+
+        Score Tracking: Keeps track of the number of wins for each player.
+
+        Replay Functionality: Allows players to reset the game board and play again.

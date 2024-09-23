@@ -1,0 +1,43 @@
+Français:
+
+    Description du projet
+
+        Ce projet est une implémentation du jeu classique du Morpion en utilisant HTML, CSS et JavaScript.
+        Le jeu permet à deux joueurs de s'affronter sur une grille 3x3, en suivant les scores et en indiquant le joueur actuel.
+
+    Aperçu du code
+
+        Structure HTML: Le fichier HTML définit l'interface du jeu, y compris la grille, les scores des joueurs et les contrôles.
+
+            En-tête: Contient le titre du jeu <h1>Morpion</h1> et un <div> pour afficher le joueur actuel (<div id="currentPlayer">Joueur ??</div>).
+
+            Grille de jeu: Une grille 3x3 créée à l'aide d'éléments <div> imbriqués avec les classes row et cell. Chaque cell représente une case du plateau de jeu.
+
+            Affichage de la victoire: Un élément <span> avec la classe win-display pour afficher le joueur gagnant (<span class="win-display">Joueur ?? a gagné !</span>).
+
+            Contrôles: Inclut les scores des joueurs et un bouton "Rejouer".
+
+                Scores: Deux éléments <div> affichant "Joueur 1" et "Joueur 2" avec leurs scores respectifs (<span id="playerOne">0</span> et <span id="playerTwo">0</span>).
+
+                Bouton Rejouer: Un élément <button> avec l'ID replay pour réinitialiser le jeu.
+
+        Ressources externes:
+
+            Feuille de style CSS: Liée via <link rel="stylesheet" href="styles/main.css" /> pour styliser l'interface du jeu.
+
+            Fichier JavaScript: Lié via <script type="module" src="scripts/morpion.js" defer></script> pour ajouter la logique du jeu et l'interactivité.
+
+            Favicon: Lié via <link rel="shortcut icon" href="assets/favicon.ico" />.
+
+    Fonctionnalités
+
+        Indicateur dynamique du joueur: Affiche à qui c'est le tour de jouer.
+
+        Grille interactive: Les joueurs peuvent cliquer sur les cellules pour placer leurs marques (généralement "X" ou "O").
+
+        Détection de victoire: Le jeu détecte lorsqu'un joueur a gagné et affiche un message de victoire.
+
+        Suivi des scores: Garde une trace du nombre de victoires pour chaque joueur.
+
+        Fonctionnalité de rejouer: Permet aux joueurs de réinitialiser le plateau de jeu et de rejouer.
+        

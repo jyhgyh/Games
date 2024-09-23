@@ -1,0 +1,93 @@
+Français:
+
+    Description du projet
+
+        Ce projet est une application de quiz interactive développée en HTML, CSS et JavaScript. Le quiz présente une série
+        de questions à l'utilisateur, recueille ses réponses, calcule le score et affiche le résultat final à la fin.
+
+    Aperçu du code
+
+    Code JavaScript (script.js):
+
+        Tableau des Questions : Une constante questions contient plusieurs objets de questions. Chaque objet comprend :
+
+            "question" : La question du quiz sous forme de chaîne de caractères.
+
+            "reponses" : Un tableau de réponses possibles.
+                    
+            "solution" : L'indice de la réponse correcte sous forme de chaîne (à partir de "1").
+
+        Éléments du DOM :
+
+            headerContainer : Référence l'élément avec l'ID header où le titre de la question est affiché.
+            
+            listContainer : Référence l'élément avec l'ID list où les options de réponse sont affichées.
+
+            submitBtn : Référence le bouton de soumission avec l'ID submit.
+
+        Variables :
+
+            score : Suit le score de l'utilisateur.
+            
+            questionIndex : Garde une trace de l'indice de la question actuelle.
+
+        Écouteurs d'événements :
+
+            submitBtn.onclick = checkAnswer; : Ajoute un écouteur d'événement au clic sur le bouton de soumission,
+            déclenchant la fonction checkAnswer.
+        
+        Fonctions :
+
+            clearPage() : Efface le contenu de headerContainer et listContainer.
+
+            showQuestion() : Affiche la question actuelle et ses options de réponse. Elle :
+
+                Utilise un template pour insérer le titre de la question dans le HTML.
+                
+                Itère sur le tableau reponses pour créer des éléments de liste pour chaque option de réponse.
+                
+                Met à jour listContainer avec les options de réponse.
+        
+            checkAnswer() : Vérifie la réponse sélectionnée par l'utilisateur. Elle :
+
+                Récupère le bouton radio sélectionné.
+                
+                Compare la réponse de l'utilisateur avec la solution correcte.
+                
+                Incrémente le score si la réponse est correcte.
+            
+                Détermine s'il reste des questions à afficher ou montre le résultat final.
+        
+            showResult() : Affiche le score final à l'utilisateur. Elle :
+
+                Construit un template de résultat avec le score de l'utilisateur.
+
+                Met à jour headerContainer avec le message final.
+    
+    Structure HTML (index.html):
+
+        Éléments principaux :
+
+            <main> : Englobe toute l'application du quiz.
+
+            <div class="quiz" id="quiz"> : Le conteneur principal du quiz.
+
+                En-tête (<div class="quiz_header" id="header">) : Affiche le titre de la question et les placeholders pour les messages de résultat.
+
+                Liste (<ul class="quiz_list" id="list">) : Contient la liste des options de réponse.
+
+                Bouton de soumission : <button class="quiz-submit submit" id="submit">Répondre</button>.
+
+        Scripts :
+
+            <script src="js/script.js"></script> : Lien vers le fichier JavaScript.
+
+    Fonctionnalités
+
+        Affichage dynamique des questions : Les questions et les options de réponse sont chargées dynamiquement à partir du tableau questions.
+
+        Interaction utilisateur : Les utilisateurs sélectionnent une réponse et la soumettent pour passer à la question suivante.
+
+        Calcul du score : L'application suit le score de l'utilisateur tout au long du quiz.
+
+        Affichage du résultat final : À la fin du quiz, le score total de l'utilisateur est affiché.
