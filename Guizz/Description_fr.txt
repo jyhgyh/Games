@@ -2,6 +2,8 @@ Français:
 
     Description du projet
 
+        Lancez le quizz en ouvrant le fichier "index.html".
+
         Ce projet est une application de quiz interactive développée en HTML, CSS et JavaScript. Le quiz présente une série
         de questions à l'utilisateur, recueille ses réponses, calcule le score et affiche le résultat final à la fin.
 
@@ -28,7 +30,7 @@ Français:
         Variables :
 
             score : Suit le score de l'utilisateur.
-            
+
             questionIndex : Garde une trace de l'indice de la question actuelle.
 
         Écouteurs d'événements :

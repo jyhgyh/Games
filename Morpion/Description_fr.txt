@@ -2,6 +2,8 @@ Français:
 
     Description du projet
 
+        Exécuter le jeu sur un serveur local pour pouvoir y jouer.
+        
         Ce projet est une implémentation du jeu classique du Morpion en utilisant HTML, CSS et JavaScript.
         Le jeu permet à deux joueurs de s'affronter sur une grille 3x3, en suivant les scores et en indiquant le joueur actuel.
 

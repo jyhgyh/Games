@@ -2,12 +2,11 @@ English:
 
     Project Description
 
+        To execute the code, type "php battleship.php" in the console.
+
         This PHP project provides a function that creates and displays a grid representing a game board with ships
-        
         placed at specified coordinates. The grid's dimensions are determined by the parameters
-        
-        $x (number of columns) and $y (number of rows). Ships are marked with an "X"
-        
+        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
         on the grid based on the coordinates provided in the $ships array.
 
     Function Overview
@@ -38,5 +37,3 @@ English:
         +---+---+---+---+---+
         |   | X |   |   |   |
         +---+---+---+---+---+
-
-    To execute the code, type "php battleship.php" in the console.

@@ -2,6 +2,8 @@ English:
 
     Project Description
 
+        Run the game on a local server in order to be able to play it
+
         This project is an implementation of the classic Tic-Tac-Toe game
         using HTML, CSS, and JavaScript. The game allows two players to compete on a 3x3 grid,
         tracking scores and indicating the current player.
