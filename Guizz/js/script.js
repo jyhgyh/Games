@@ -1,191 +1,180 @@
 const questions = [
-    {
-      "question": "Who is the creator of PHP?",
-      "reponses": [
-        "Jack Sparrow", 
-        "Rasmus Lerdorf", 
-        "Tim Berners-Lee", 
-        "Dennis Ritchie"
-      ],
-      "solution": "2"
-    },
-    {
-      "question": "When was the first implementation of Blockchain Technology?",
-      "reponses": [
-        "2009", 
-        "2008", 
-        "2000", 
-        "1991"
-      ],
-      "solution": "1"
-    },
-    {
-      "question": "In which year was the first Playstation made?",
-      "reponses": [
-       "1994", 
-       "1992", 
-       "1990", 
-       "1995"
-      ],
-      "solution": "1"
-    },
-     {
-      "question": "What does PHP mean today ?",
-      "reponses": [
-       "PHP: Personal Home Page",
-       "PHP: Program High Performace",
-       "PHP: Hypertext Preprocessor",
-       "PHP: Hypertext Page"
-      ],
-      "solution": "3"
-    },
-     {
-      "question": "What is the last Sega console?",
-      "reponses": [
-       "Dreamcast", 
-       "Saturn", 
-       "S-Gage", 
-       "Lindbergh"
-      ],
-      "solution": "1"
-    },
-     {
-      "question": "What does www stands for ?",
-      "reponses": [
-      "Web wasabi world",
-      "World wide web",
-      "Wide web world",
-      "Web war song"
-      ],
-      "solution": "2"
-    },
-     {
-      "question": "What's the name of the UNIX creator?",
-      "reponses": [
-      "Mark Shuttleworth", 
-      "Kenneth Thompson",
-      "Linus Torvalds",
-      "Bill Gates"
-      ],
-      "solution": "2"
-    },
-    {
-      "question": "When was born Alan Turing ?",
-      "reponses": [
-      "1981", 
-      "1891", 
-      "1934",
-      "1912"
-      ],
-      "solution": "4"
-    },
-      {
-      "question": "What is the port for the http",
-      "reponses": [
-        "70",
-        "90",
-        "82",
-        "80"
-      ],
-      "solution": "4"
-    }
-  ]
+  {
+    question: "Who is the creator of PHP?",
+    responses: [
+      "Jack Sparrow", 
+      "Rasmus Lerdorf", 
+      "Tim Berners-Lee", 
+      "Dennis Ritchie"
+    ],
+    solution: "2"
+  },
+  {
+    question: "When was the first implementation of Blockchain Technology?",
+    responses: [
+      "2009", 
+      "2008", 
+      "2000", 
+      "1991"
+    ],
+    solution: "2"
+  },
+  {
+    question: "In which year was the first Playstation made?",
+    responses: [
+     "1994", 
+     "1992", 
+     "1990", 
+     "1995"
+    ],
+    solution: "1"
+  },
+   {
+    question: "What does PHP mean today?",
+    responses: [
+     "PHP: Personal Home Page",
+     "PHP: Program High Performance",
+     "PHP: Hypertext Preprocessor",
+     "PHP: Hypertext Page"
+    ],
+    solution: "3"
+  },
+   {
+    question: "What is the last Sega console?",
+    responses: [
+     "Dreamcast", 
+     "Saturn", 
+     "S-Gage", 
+     "Lindbergh"
+    ],
+    solution: "1"
+  },
+   {
+    question: "What does www stand for?",
+    responses: [
+    "Web wasabi world",
+    "World wide web",
+    "Wide web world",
+    "Web war song"
+    ],
+    solution: "2"
+  },
+   {
+    question: "What's the name of the UNIX creator?",
+    responses: [
+    "Mark Shuttleworth", 
+    "Kenneth Thompson",
+    "Linus Torvalds",
+    "Bill Gates"
+    ],
+    solution: "2"
+  },
+  {
+    question: "When was Alan Turing born?",
+    responses: [
+    "1981", 
+    "1891", 
+    "1934",
+    "1912"
+    ],
+    solution: "4"
+  },
+  {
+    question: "What is the port for HTTP?",
+    responses: [
+      "70",
+      "90",
+      "82",
+      "80"
+    ],
+    solution: "4"
+  }
+];
+
 const headerContainer = document.querySelector('#header');
 const listContainer = document.querySelector('#list');
 const submitBtn = document.querySelector('#submit');
 
-
 let score = 0;
 let questionIndex = 0;
 
+clearPage();
+showQuestion();
+
 submitBtn.onclick = checkAnswer;
 
+// Функция для очистки страницы
 function clearPage() {
     headerContainer.innerHTML = '';
     listContainer.innerHTML = '';
-};
-
-clearPage();
-
-function showQuestion() {
-    console.log('showQuestin')
-
-    // console.log(questions[questionIndex]['question'])
-    const headerTemplate = `<h2 class="title">%title%</h2>`;
-    const title = headerTemplate.replace('%title%', questions[questionIndex]['question']);
-
-    headerContainer.innerHTML = title;
-
-    for([index ,item] of questions[questionIndex]['reponses'].entries()){
-        // console.log(item);
-        console.log(index+1, item);
-        const questionTemplate = 
-        `<li>
-            <table>
-                <input value="%number%" type="radio" name="answer" class="answer">
-                <span>%Answer%</span>
-            </table>
-        </li>`
-
-        let answer = questionTemplate.replace('%Answer%', item);
-        
-        answer = answer.replace('%number%', index+1)
-
-        listContainer.innerHTML += answer;
-    }
 }
 
-showQuestion();
+// Функция для отображения вопроса
+function showQuestion() {
+    const currentQuestion = questions[questionIndex];
 
-function checkAnswer(){
-    // console.log('Done')
+    // Формирование заголовка вопроса
+    const headerTemplate = `<h2 class="title">${currentQuestion.question}</h2>`;
+    headerContainer.innerHTML = headerTemplate;
 
+    // Формирование списка ответов
+    currentQuestion.responses.forEach((response, index) => {
+        const questionTemplate = 
+        `<li>
+            <label>
+                <input value="${index + 1}" type="radio" name="answer" class="answer">
+                <span>${response}</span>
+            </label>
+        </li>`;
+        listContainer.innerHTML += questionTemplate;
+    });
+}
+
+// Функция проверки ответа
+function checkAnswer() {
     const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
-    // console.log(checkedRadio);
 
-    if(!checkedRadio){
-        submitBtn.blur()
-        return
+    if (!checkedRadio) {
+        alert("Please select an answer before proceeding!");
+        return;
     }
-
-    // console.log(checkedRadio.value);
 
     const userAnswer = checkedRadio.value;
 
-    // console.log(userAnswer, questions[questionIndex]['solution'])
-
-    if(userAnswer === questions[questionIndex]['solution']){
-        // console.log('Donee')
+    if (userAnswer === questions[questionIndex].solution) {
         score++;
     }
 
-    function showResult(){
-        console.log('konec')
-         console.log(score);
-
-         const resultTemplate = `
-         <h2 class="title">%title%</h2>
-                <h3 class="summary">%message%</h3>
-                <p class="result">%result%</p>
-         `;
-
-         let title = "You're done"
-         let summary = "Your score is:"
-         let result = `${score}/${questions.length}`
-
-         const finalMessage = resultTemplate.replace('%title%', title).replace('%message%', summary).replace('%result%', result);
-
-         headerContainer.innerHTML = finalMessage;
-    }
-
-    if(questionIndex !== questions.length - 1){
+    if (questionIndex !== questions.length - 1) {
         questionIndex++;
         clearPage();
         showQuestion();
-        return;
     } else {
         clearPage();
         showResult();
-        
     }
+}
+
+function showResult() {
+    const resultTemplate = `
+        <h2 class="title">Quiz Completed</h2>
+        <h3 class="summary">Your score is:</h3>
+        <p class="result">${score} out of ${questions.length}</p>
+        <button class="quiz-submit" id="restart">Restart Quiz</button>
+    `;
+    headerContainer.innerHTML = resultTemplate;
+
+    const restartBtn = document.querySelector('#restart');
+    restartBtn.onclick = restartQuiz;
+
+    submitBtn.style.display = 'none';
+}
+
+// Функция для рестарта викторины
+function restartQuiz() {
+    score = 0;
+    questionIndex = 0;
+    submitBtn.style.display = ''; // Показать кнопку "Ответить"
+    clearPage();
+    showQuestion();
 }

@@ -5,7 +5,8 @@ English:
         Start the quiz by opening the "index.html" file.
 
         This project is an interactive quiz application developed using HTML, CSS, and JavaScript.
-        The quiz presents a series of questions to the user, collects their answers, calculates the score, and displays the final result at the end.
+        The quiz presents a series of questions to the user, collects their answers, calculates the score,
+        and displays the final result at the end.
 
     Code Overview
 
