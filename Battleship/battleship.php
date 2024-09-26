@@ -90,7 +90,7 @@ function battleshipGame()
         echo "\nPlayer Field 1:\n";
         displayGrid($gridPlayer1, $x, $y);
 
-        echo "\nПоле игрока 2:\n";
+        echo "\nPlayer Field 2:\n";
         displayGrid($gridPlayer2, $x, $y);
 
         if ($turn == 1) {
