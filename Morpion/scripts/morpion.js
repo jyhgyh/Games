@@ -3,12 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   new Morpion(gridElement);
 });
 
-
 export class Morpion {
   constructor(gridElement) {
     this.gridElement = gridElement;
     this.cells = this.gridElement.querySelectorAll('.cell');
-    this.currentPlayer = 1
+    this.currentPlayer = 1;
     this.currentPlayerDisplay = document.getElementById('currentPlayer');
     this.scores = { 1: 0, 2: 0 };
     this.replayButton = document.getElementById('replay');
@@ -19,9 +18,7 @@ export class Morpion {
 
   addEventListeners() {
     this.cells.forEach(cell => {
-      cell.addEventListener('click', () => {
-        this.handleClick(cell);
-      });
+      cell.addEventListener('click', () => this.handleClick(cell));
     });
 
     this.replayButton.addEventListener('click', () => {
@@ -32,13 +29,15 @@ export class Morpion {
   handleClick(cell) {
     if (!cell.textContent && !this.checkWinner()) {
       cell.textContent = this.currentPlayer === 1 ? 'X' : 'O';
-      this.winDisplay.opacity = "1";
-      this.winDisplay.transform = "translate(0, 0) scale(1)";
+      
       if (this.checkWinner()) {
-        this.winDisplay.textContent = `Игрок ${this.currentPlayer} won!`
+        this.winDisplay.textContent = `Joueur ${this.currentPlayer} gagnée!`;
         this.scores[this.currentPlayer]++;
+        this.updateScores();
+        this.showWinMessage();
       } else if (this.checkDraw()) {
-        this.winDisplay.textContent = "GGWP!";
+        this.winDisplay.textContent = "Cravate!";
+        this.showWinMessage();
       } else {
         this.changePlayer();
       }
@@ -46,16 +45,19 @@ export class Morpion {
   }
 
   checkWinner() {
-    const zxc = [
+    const winningCombinations = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
       [0, 4, 8], [2, 4, 6]
     ];
 
-    for (const combination of zxc) {
-      const [z, x, c] = combination;
+    for (const combination of winningCombinations) {
+      const [a, b, c] = combination;
       if (
-        this.cells[z].textContent && this.cells[z].textContent === this.cells[x].textContent && this.cells[z].textContent === this.cells[c].textContent) {
+        this.cells[a].textContent &&
+        this.cells[a].textContent === this.cells[b].textContent &&
+        this.cells[a].textContent === this.cells[c].textContent
+      ) {
         return true;
       }
     }
@@ -63,12 +65,12 @@ export class Morpion {
   }
 
   checkDraw() {
-    return [...this.cells].every(cell => cell.textContent)
+    return [...this.cells].every(cell => cell.textContent);
   }
 
   changePlayer() {
     this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
-    this.currentPlayerDisplay.textContent = `Player ${this.currentPlayer}`;
+    this.currentPlayerDisplay.textContent = `Joueur ${this.currentPlayer}`;
   }
 
   resetGame() {
@@ -76,8 +78,23 @@ export class Morpion {
       cell.textContent = '';
     });
     this.currentPlayer = 1;
-    this.currentPlayerDisplay.textContent = `Player ${this.currentPlayer}`;
+    this.currentPlayerDisplay.textContent = `Joueur ${this.currentPlayer}`;
     this.winDisplay.textContent = '';
+    this.hideWinMessage();
+  }
+
+  updateScores() {
+    document.getElementById('playerOne').textContent = this.scores[1];
+    document.getElementById('playerTwo').textContent = this.scores[2];
+  }
+
+  showWinMessage() {
+    this.winDisplay.style.opacity = '1';
+    this.winDisplay.style.transform = 'translate(0, 0) scale(1)';
+  }
+
+  hideWinMessage() {
+    this.winDisplay.style.opacity = '0';
+    this.winDisplay.style.transform = 'translate(0, 50px) scale(0.5)';
   }
 }
-

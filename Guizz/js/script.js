@@ -103,21 +103,17 @@ showQuestion();
 
 submitBtn.onclick = checkAnswer;
 
-// Функция для очистки страницы
 function clearPage() {
     headerContainer.innerHTML = '';
     listContainer.innerHTML = '';
 }
 
-// Функция для отображения вопроса
 function showQuestion() {
     const currentQuestion = questions[questionIndex];
 
-    // Формирование заголовка вопроса
     const headerTemplate = `<h2 class="title">${currentQuestion.question}</h2>`;
     headerContainer.innerHTML = headerTemplate;
 
-    // Формирование списка ответов
     currentQuestion.responses.forEach((response, index) => {
         const questionTemplate = 
         `<li>
@@ -130,7 +126,6 @@ function showQuestion() {
     });
 }
 
-// Функция проверки ответа
 function checkAnswer() {
     const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
 
@@ -170,11 +165,10 @@ function showResult() {
     submitBtn.style.display = 'none';
 }
 
-// Функция для рестарта викторины
 function restartQuiz() {
     score = 0;
     questionIndex = 0;
-    submitBtn.style.display = ''; // Показать кнопку "Ответить"
+    submitBtn.style.display = '';
     clearPage();
     showQuestion();
 }
