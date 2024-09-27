@@ -2,38 +2,45 @@ English:
 
     Project Description
 
-        To execute the code, type "php battleship.php" in the console.
+        This PHP script is a simple implementation of the classic Battleship game for two players.
+        Each player positions their ships on a 5x5 grid and takes turns attempting to sink the opponent's ships
+        by guessing their coordinates. The game continues until one player has no remaining ships.
 
-        This PHP project provides a function that creates and displays a grid representing a game board with ships
-        placed at specified coordinates. The grid's dimensions are determined by the parameters
-        $x (number of columns) and $y (number of rows). Ships are marked with an "X"        
-        on the grid based on the coordinates provided in the $ships array.
+    Launch
 
-    Function Overview
+        php battleship.php
+        This command will launch the game
 
-        The function colle($x, $y, array $ships = []) performs the following steps:
+    Functionality
+
+        Grid Initialization
+
+            The game initializes two 5x5 grids using the initGrid($x, $y) function, creating empty grids for each player.
         
-        Input Validation: Checks if $x and $y are greater than zero. If not, the function returns without executing further.
+        Ship Placement
+
+            Players are prompted to place two ships on their grid by entering X and Y coordinates.
         
-        Grid Initialization: Creates a two-dimensional array $grid filled with spaces (" "), representing an empty game board.
+            The addShip(&$grid, $x, $y, $posX, $posY) function adds ships to the grid if the coordinates are valid and the position is unoccupied.
         
-        Ship Placement: Iterates over the $ships array and places an "X" on the grid at each valid coordinate. Coordinates outside the grid boundaries are ignored.
+        Gameplay Loop
+
+            Players take turns attacking each other's grid.
         
-        Grid Display: Outputs the grid with borders using ASCII characters, showing the placement of ships.
+            During a turn, a player inputs the X and Y coordinates for their attack.
+        
+            The attack(&$grid, $posX, $posY) function checks if a ship is at the specified location:
+        
+            If a ship is hit, it's marked with an "O" and the player is informed.
+        
+            If the attack misses, the player is notified.
+        
+        Win Condition
 
-    Usage Example
+            After each attack, the hasShips($grid) function checks if the opponent has any remaining ships.
+        
+            The game ends when a player has sunk all of the opponent's ships.
+        
+        Grid Display
 
-        colle(5, 3, [[0, 1], [2, 1], [1, 2], [1, 7]]);
-
-        This example creates a grid with 5 columns and 3 rows, placing ships at the coordinates (2,1), (2,1), (1,2), and (1,7).
-
-        Note that the coordinate (1,7) is outside the grid bounds and will be ignored.
-
-    Sample Output
-        +---+---+---+---+---+
-        |   |   |   |   |   |
-        +---+---+---+---+---+
-        | X |   | X |   |   |
-        +---+---+---+---+---+
-        |   | X |   |   |   |
-        +---+---+---+---+---+
+            The displayGrid($grid, $x, $y) function visually displays the grids, showing hits and misses.
