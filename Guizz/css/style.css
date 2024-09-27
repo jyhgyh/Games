@@ -29,9 +29,7 @@ a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
-/* h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;} */
 
-/* Основные стили */
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #2c3e50, #4ca1af);
@@ -54,7 +52,6 @@ main {
     box-sizing: border-box;
 }
 
-/* Стили для викторины */
 .quiz {
     display: flex;
     flex-direction: column;
